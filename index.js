@@ -10,8 +10,21 @@ class PerfectBandwidth {
 
         discovery.on('device', console.log)
 
-        discovery.on('done', () =>
-            console.log('Done!'))
+        discovery.on('done', function() {
+          let speedTest = require('speedtest-net');
+          let test = speedTest({maxTime: 5000});
+
+          test.on('data', data => {
+            console.dir(data);
+          });
+
+          test.on('error', err => {
+            console.error(err);
+          });
+        })
+
+
+
       })
     }
 }

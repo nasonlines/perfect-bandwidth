@@ -4,7 +4,17 @@ var events        = require('events');
 
 class PerfectBandwidth {
     constructor(){
-      var network = require('network');
+      let speedTest = require('speedtest-net');
+      let test = speedTest({maxTime: 5000});
+
+      test.on('data', data => {
+        console.dir(data);
+      });
+
+      test.on('error', err => {
+        console.error(err);
+      });
+      /*var network = require('network');
       network.get_active_interface(function(err, obj) {
         const discovery = require('device-discovery')({ type: 'ICMP', iface: obj.name })
 
@@ -22,10 +32,7 @@ class PerfectBandwidth {
             console.error(err);
           });
         })
-
-
-
-      })
+      })*/
     }
 }
 

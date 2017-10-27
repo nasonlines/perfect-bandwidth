@@ -1,0 +1,26 @@
+{
+  "name": "perfect-bandwidth",
+  "version": "1.0.0",
+  "description": "Test your local network, get your speedtest and get the perfect debit for upload",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "node tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nasonlines/perfect-bandwidth.git"
+  },
+  "keywords": [
+    "networking",
+    "upload",
+    "speedtest",
+    "bandwidth"
+  ],
+  "author": "NasOnlines",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nasonlines/perfect-bandwidth/issues"
+  },
+  "homepage": "https://github.com/nasonlines/perfect-bandwidth#readme"
+}

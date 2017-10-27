@@ -4,15 +4,15 @@ var events        = require('events');
 
 class PerfectBandwidth {
     constructor(){
-      const discovery = require('device-discovery')({ type: 'ICMP', iface: 'eth0' })
+      var network = require('network');
+      network.get_active_interface(function(err, obj) {
+        const discovery = require('device-discovery')({ type: 'ICMP', iface: obj.name })
 
-    discovery.on('device', console.log)
-        // => 192.168.0.20
-        //    192.168.0.31
-        //    ...
+        discovery.on('device', console.log)
 
-    discovery.on('done', () =>
-        console.log('Done!'))
+        discovery.on('done', () =>
+            console.log('Done!'))
+      })
     }
 }
 

@@ -25,6 +25,7 @@
   "homepage": "https://github.com/nasonlines/perfect-bandwidth#readme",
   "dependencies": {
     "device-discovery": "^0.3.1",
-    "local-devices": "^1.0.5"
+    "local-devices": "^1.0.5",
+    "network": "^0.4.0"
   }
 }

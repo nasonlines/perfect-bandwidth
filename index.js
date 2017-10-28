@@ -20,9 +20,10 @@ class PerfectBandwidth {
 
           discovery.on('done', function() {
             let speedTest = require('speedtest-net');
-            let test = speedTest({maxTime: 15000});
+            let test = speedTest({maxTime: 5000});
 
             test.on('data', data => {
+              console.log(data)
               let bytesPerSeconds = bytes(data.speeds.upload+'MB');
               let shareBandwidth = bytesPerSeconds/devicesFound;
               self.emit('perfectBandwidth', shareBandwidth/4)

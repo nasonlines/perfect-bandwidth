@@ -11,22 +11,18 @@ class PerfectBandwidth {
 
       network.get_active_interface(function(err, obj) {
         const discovery = require('device-discovery')({ type: 'ICMP', iface: obj.name })
+
         discovery.on('device', function(){
           devicesFound += 1
         })
-        discovery.on('done', function() {
 
+        discovery.on('done', function() {
           let speedTest = require('speedtest-net');
           let test = speedTest({maxTime: 15000});
 
           test.on('data', data => {
             let bytesPerSeconds = bytes(data.speeds.upload+'MB');
             let shareBandwidth = bytesPerSeconds/devicesFound;
-            console.log("UPLOAD INTERNET :", data.speeds.upload)
-            console.log("DEVICES FOUND :", devicesFound)
-            console.log("shareBandwidth : ", bytesPerSeconds/devicesFound)
-            console.log("perfectBandwidth :: ",shareBandwidth/4)
-
             self.emit('perfectBandwidth', shareBandwidth/4)
           });
 

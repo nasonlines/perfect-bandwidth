@@ -5,4 +5,3 @@ node_js:
   - "6"
 before_script:
   - npm install
-sudo: true

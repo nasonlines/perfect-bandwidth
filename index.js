@@ -6,7 +6,7 @@ var bytes         = require('bytes');
 class PerfectBandwidth {
     constructor(defaultBandwidth = 80000){
       var network = require('network');
-      var devicesFound = 0;
+      var devicesFound = 1;
       var self = this;
 
       network.get_active_interface(function(err, obj) {
